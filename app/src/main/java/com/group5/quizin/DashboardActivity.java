@@ -1,10 +1,8 @@
 package com.group5.quizin;
 
 import static com.group5.quizin.SplashActivity.list;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,9 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
-
 import java.util.Collections;
 import java.util.List;
 
@@ -50,6 +46,7 @@ public class DashboardActivity extends AppCompatActivity {
         Hooks();
         allQuestionsList = list;
         Collections.shuffle(allQuestionsList);
+        allQuestionsList.add(new ModelClass("Rate this app", "1 star", "2 star", "3 star", "4 star", "4 star"));
         modelClass = list.get(index);
 
         cardOA.setBackgroundColor(getResources().getColor(R.color.white));
@@ -141,11 +138,15 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 correctCount++;
-                index++;
-                modelClass = list.get(index);
-                resetColor();
-                setAllData();
-                enableButton();
+                if (index < list.size() - 1) {
+                    index++;
+                    modelClass = list.get(index);
+                    resetColor();
+                    setAllData();
+                    enableButton();
+                } else {
+                    GameWon();
+                }
             }
         });
 

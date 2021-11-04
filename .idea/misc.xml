@@ -13,7 +13,7 @@
         <entry key="app/src/main/res/drawable/tmout_btn_shape.xml" value="0.22962962962962963" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_signin.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_signin.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_won.xml" value="0.25" />
         <entry key="app/src/main/res/layout/login_activity.xml" value="0.25" />
