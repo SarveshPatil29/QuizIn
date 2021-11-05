@@ -45,8 +45,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         Hooks();
         allQuestionsList = list;
-        Collections.shuffle(allQuestionsList);
-        allQuestionsList.add(new ModelClass("Rate this app", "1 star", "2 star", "3 star", "4 star", "4 star"));
+//        allQuestionsList.add(new ModelClass("Rate this app", "⭐️", "⭐️⭐️", "⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️"));
         modelClass = list.get(index);
 
         cardOA.setBackgroundColor(getResources().getColor(R.color.white));
