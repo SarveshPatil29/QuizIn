@@ -9,12 +9,10 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
-import java.util.Collections;
 import java.util.List;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -45,7 +43,6 @@ public class DashboardActivity extends AppCompatActivity {
 
         Hooks();
         allQuestionsList = list;
-//        allQuestionsList.add(new ModelClass("Rate this app", "⭐️", "⭐️⭐️", "⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️"));
         modelClass = list.get(index);
 
         cardOA.setBackgroundColor(getResources().getColor(R.color.white));

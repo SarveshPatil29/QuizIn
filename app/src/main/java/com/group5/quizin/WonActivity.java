@@ -79,21 +79,8 @@ public class WonActivity extends AppCompatActivity {
         circularProgressBar.setProgress(correct);
 
         resultText.setText(correct + "/10");
-        //.child("Result").setValue(correct)
-        //.child(user.getUid())
-        //.child(user.getUid()).child("Email").setValue(email)
 
         rootReference.child("Score");
-        //.addOnCompleteListener(new OnCompleteListener<Void>() {
-        //            @Override
-        //            public void onComplete(@NonNull Task<Void> task) {
-        //                if(task.isSuccessful()){
-        //                    Toast.makeText(WonActivity.this, "Data inserted", Toast.LENGTH_SHORT).show();
-        //                } else {
-        //                    Toast.makeText(WonActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-        //                }
-        //            }
-        //        });
 
         DataHolder obj =  new DataHolder(email, correct);
         FirebaseDatabase db = FirebaseDatabase.getInstance();
