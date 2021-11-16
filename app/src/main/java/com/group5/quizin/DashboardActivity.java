@@ -31,10 +31,10 @@ public class DashboardActivity extends AppCompatActivity {
 
     int correctCount = 0;
     int wrongCount = 0;
+    int totalCount = 0;
 
     LinearLayout nextBtn;
-    ImageView backBtn;
-    TextView exitBtn;
+    ImageView backBtn,exitBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class DashboardActivity extends AppCompatActivity {
         Hooks();
         allQuestionsList = list;
         modelClass = list.get(index);
+        totalCount = list.size()-1;
 
         cardOA.setBackgroundColor(getResources().getColor(R.color.white));
         cardOB.setBackgroundColor(getResources().getColor(R.color.white));
@@ -60,6 +61,7 @@ public class DashboardActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(DashboardActivity.this, SignInActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -101,10 +103,10 @@ public class DashboardActivity extends AppCompatActivity {
 
     private void setAllData() {
         card_question.setText(modelClass.getQuestion());
-        optionA.setText(modelClass.getoA());
-        optionB.setText(modelClass.getoB());
-        optionC.setText(modelClass.getoC());
-        optionD.setText(modelClass.getoD());
+        optionA.setText(modelClass.getOptionA());
+        optionB.setText(modelClass.getOptionB());
+        optionC.setText(modelClass.getOptionC());
+        optionD.setText(modelClass.getOptionD());
         timerValue = 20;
         countDownTimer.cancel();
         countDownTimer.start();
@@ -174,6 +176,7 @@ public class DashboardActivity extends AppCompatActivity {
         Intent intent = new Intent(DashboardActivity.this, WonActivity.class);
         intent.putExtra("correct", correctCount);
         intent.putExtra("wrong", wrongCount);
+        intent.putExtra("totalQuestions",totalCount);
         startActivity(intent);
     }
 
@@ -201,7 +204,7 @@ public class DashboardActivity extends AppCompatActivity {
     public void optionClickA(View view) {
         disableButton();
         nextBtn.setClickable(true);
-        if (modelClass.getoA().equals(modelClass.getAns())) {
+        if (modelClass.getOptionA().equals(modelClass.getAnswer())) {
             cardOA.setCardBackgroundColor(getResources().getColor(R.color.green));
 
             if (index < list.size() - 1) {
@@ -217,7 +220,7 @@ public class DashboardActivity extends AppCompatActivity {
     public void optionClickB(View view) {
         disableButton();
         nextBtn.setClickable(true);
-        if (modelClass.getoB().equals(modelClass.getAns())) {
+        if (modelClass.getOptionB().equals(modelClass.getAnswer())) {
             cardOB.setCardBackgroundColor(getResources().getColor(R.color.green));
 
             if (index < list.size() - 1) {
@@ -233,7 +236,7 @@ public class DashboardActivity extends AppCompatActivity {
     public void optionClickC(View view) {
         disableButton();
         nextBtn.setClickable(true);
-        if (modelClass.getoC().equals(modelClass.getAns())) {
+        if (modelClass.getOptionC().equals(modelClass.getAnswer())) {
             cardOC.setCardBackgroundColor(getResources().getColor(R.color.green));
 
             if (index < list.size() - 1) {
@@ -249,7 +252,7 @@ public class DashboardActivity extends AppCompatActivity {
     public void optionClickD(View view) {
         disableButton();
         nextBtn.setClickable(true);
-        if (modelClass.getoD().equals(modelClass.getAns())) {
+        if (modelClass.getOptionD().equals(modelClass.getAnswer())) {
             cardOD.setCardBackgroundColor(getResources().getColor(R.color.green));
 
             if (index < list.size() - 1) {

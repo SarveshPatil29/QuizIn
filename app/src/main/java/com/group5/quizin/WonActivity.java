@@ -27,14 +27,14 @@ public class WonActivity extends AppCompatActivity {
     TextView resultText;
     int correct;
     int wrong;
+    int totalQuestions;
 
     LinearLayout btnShare;
 
     FirebaseUser user;
     DatabaseReference rootReference;
 
-    ImageView backBtn;
-    TextView exitBtn;
+    ImageView backBtn,exitBtn;
 
 
     @Override
@@ -44,9 +44,10 @@ public class WonActivity extends AppCompatActivity {
 
         correct = getIntent().getIntExtra("correct", 0);
         wrong = getIntent().getIntExtra("wrong", 0);
+        totalQuestions = getIntent().getIntExtra("totalQuestions",0);
 
-        backBtn = findViewById(R.id.ic_back);
-        exitBtn = findViewById(R.id.ic_exit);
+        backBtn = findViewById(R.id.ic_back2);
+        exitBtn = findViewById(R.id.ic_exit2);
         backBtn.setClickable(false);
         exitBtn.setClickable(false);
 
@@ -55,6 +56,7 @@ public class WonActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(WonActivity.this, SignInActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -78,7 +80,8 @@ public class WonActivity extends AppCompatActivity {
 
         circularProgressBar.setProgress(correct);
 
-        resultText.setText(correct + "/10");
+        resultText.setText(correct + "/"+totalQuestions);
+        resultText.setTextSize(50);
 
         rootReference.child("Score");
 
@@ -95,8 +98,8 @@ public class WonActivity extends AppCompatActivity {
                     Intent shareIntent = new Intent(Intent.ACTION_SEND);
                     shareIntent.setType("text/plain");
                     shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name");
-                    String shareMessage = "\nI got " + correct + " Out of 10 You Can Also Try ";
-                    shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID + "\n";
+                    String shareMessage = "\nI got " + correct + " Out of " + totalQuestions + " You Can Also Try ";
+                    shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID;
                     shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
                     startActivity(Intent.createChooser(shareIntent, "choose one"));
                 } catch (Exception e) {

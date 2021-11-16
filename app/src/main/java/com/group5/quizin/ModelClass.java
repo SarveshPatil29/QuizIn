@@ -1,71 +1,70 @@
 package com.group5.quizin;
 
 public class ModelClass {
-    String Question;
-    String oA;
-    String oB;
-    String oC;
-    String oD;
-    String ans;
+    String question;
+    String optionA;
+    String optionB;
+    String optionC;
+    String optionD;
+    String answer;
 
     public ModelClass() {
-
     }
 
-    public ModelClass(String question, String oA, String oB, String oC, String oD, String ans) {
-        Question = question;
-        this.oA = oA;
-        this.oB = oB;
-        this.oC = oC;
-        this.oD = oD;
-        this.ans = ans;
+    public ModelClass(String question, String optionA, String optionB, String optionC, String optionD, String answer) {
+        this.question = question;
+        this.optionA = optionA;
+        this.optionB = optionB;
+        this.optionC = optionC;
+        this.optionD = optionD;
+        this.answer = answer;
     }
 
     public String getQuestion() {
-        return Question;
+        return question;
     }
 
     public void setQuestion(String question) {
-        Question = question;
+        this.question = question;
     }
 
-    public String getoA() {
-        return oA;
+    public String getOptionA() {
+        return optionA;
     }
 
-    public void setoA(String oA) {
-        this.oA = oA;
+    public void setOptionA(String optionA) {
+        this.optionA = optionA;
     }
 
-    public String getoB() {
-        return oB;
+    public String getOptionB() {
+        return optionB;
     }
 
-    public void setoB(String oB) {
-        this.oB = oB;
+    public void setOptionB(String optionB) {
+        this.optionB = optionB;
     }
 
-    public String getoC() {
-        return oC;
+    public String getOptionC() {
+        return optionC;
     }
 
-    public void setoC(String oC) {
-        this.oC = oC;
+    public void setOptionC(String optionC) {
+        this.optionC = optionC;
     }
 
-    public String getoD() {
-        return oD;
+    public String getOptionD() {
+        return optionD;
     }
 
-    public void setoD(String oD) {
-        this.oD = oD;
+    public void setOptionD(String optionD) {
+        this.optionD = optionD;
     }
 
-    public String getAns() {
-        return ans;
+    public String getAnswer() {
+        return answer;
     }
 
-    public void setAns(String ans) {
-        this.ans = ans;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 }

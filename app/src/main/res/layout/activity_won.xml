@@ -17,26 +17,25 @@
 
 
         <ImageView
-            android:id="@+id/ic_back"
+            android:id="@+id/ic_back2"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:background="@drawable/ic_back"
+            android:background="@drawable/ic_baseline_arrow_back_24"
             android:backgroundTint="@color/white"
             app:tint="@color/white" />
 
-        <TextView
-            android:id="@+id/ic_exit"
+        <ImageView
+            android:id="@+id/ic_exit2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/_10sdp"
-            android:text="Exit"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_18sdp" />
+            android:background="@drawable/ic_baseline_exit_to_app_24"
+            android:backgroundTint="@color/white"/>
 
     </RelativeLayout>
 
@@ -100,6 +99,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/congratulations"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_190sdp"
         android:layout_marginStart="@dimen/_20sdp"
@@ -111,10 +111,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/congratulation" />
-
-
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/c2" />
     </RelativeLayout>
-
-
 </RelativeLayout>
