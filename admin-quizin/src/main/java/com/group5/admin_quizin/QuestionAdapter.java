@@ -26,11 +26,11 @@ import com.orhanobut.dialogplus.ViewHolder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class QuestionAdapterNew extends FirebaseRecyclerAdapter<QuestionModel, QuestionAdapterNew.QuestionViewHolder> {
+public class QuestionAdapter extends FirebaseRecyclerAdapter<QuestionModel, QuestionAdapter.QuestionViewHolder> {
 
     private Context context;
 
-    public QuestionAdapterNew(@NonNull FirebaseRecyclerOptions<QuestionModel> options, Context context) {
+    public QuestionAdapter(@NonNull FirebaseRecyclerOptions<QuestionModel> options, Context context) {
         super(options);
         this.context = context;
     }

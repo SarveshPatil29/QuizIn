@@ -17,8 +17,9 @@ public class QuestionListActivity extends AppCompatActivity {
 
 
     private RecyclerView recyclerView;
-    private QuestionAdapterNew adapter;
+    private QuestionAdapter adapter;
     private Button addQB;
+    private Button resultBtn;
     ImageView backBtn;
     ImageView exitBtn;
 
@@ -29,13 +30,24 @@ public class QuestionListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_question_list);
         backBtn = findViewById(R.id.backBtn);
         exitBtn = findViewById(R.id.exitBtn);
+        resultBtn = findViewById(R.id.resultBtn);
         backBtn.setClickable(false);
         exitBtn.setClickable(false);
+        resultBtn.setClickable(false);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(QuestionListActivity.this, SignInActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        resultBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(QuestionListActivity.this, ScoreActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -67,7 +79,7 @@ public class QuestionListActivity extends AppCompatActivity {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Question"), QuestionModel.class)
                         .build();
 
-        adapter = new QuestionAdapterNew(options,this);
+        adapter = new QuestionAdapter(options,this);
         recyclerView.setAdapter(adapter);
     }
 

@@ -91,6 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textSize="@dimen/_15sdp"
                 android:text="Share Your Score"
                 android:textColor="@color/white" />
 
@@ -104,7 +105,9 @@
         android:layout_height="@dimen/_190sdp"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
         android:layout_alignParentBottom="true"
         >
 
