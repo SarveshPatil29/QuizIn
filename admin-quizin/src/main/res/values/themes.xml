@@ -14,6 +14,10 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Progressbar">
+        <item name="colorSecondary">#3297ca</item>
+    </style>
+
     <style name="AppTheme" parent="Theme.QuizIn">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primary_quiz</item>
