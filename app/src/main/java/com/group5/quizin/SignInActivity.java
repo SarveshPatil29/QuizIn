@@ -3,10 +3,12 @@ package com.group5.quizin;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -23,6 +25,7 @@ public class SignInActivity extends AppCompatActivity {
     private TextView mTextView;
     private Button signInBtn;
     private FirebaseAuth mAuth;
+    private Dialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,12 @@ public class SignInActivity extends AppCompatActivity {
         mPass= findViewById(R.id.password);
         mTextView= findViewById(R.id.textView2);
         signInBtn= findViewById(R.id.signInBtn);
+
+        loadingDialog = new Dialog(SignInActivity.this);
+        loadingDialog.setContentView(R.layout.loading_progressbar);
+        loadingDialog.setCancelable(false);
+        loadingDialog.getWindow().setBackgroundDrawableResource(R.drawable.progress_background);
+        loadingDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -51,6 +60,8 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void loginUser(){
+        loadingDialog.show();
+
         String email = mEmail.getText().toString();
         String pass = mPass.getText().toString();
 
@@ -60,6 +71,7 @@ public class SignInActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
+                                loadingDialog.dismiss();
                                 Toast.makeText(SignInActivity.this, "Login Successfully !!", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(SignInActivity.this , DashboardActivity.class));
                                 finish();
@@ -67,6 +79,7 @@ public class SignInActivity extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        loadingDialog.dismiss();
                         Toast.makeText(SignInActivity.this, "Login Failed !!", Toast.LENGTH_SHORT).show();
                     }
                 });

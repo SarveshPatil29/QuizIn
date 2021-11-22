@@ -185,6 +185,7 @@ public class DashboardActivity extends AppCompatActivity {
         cardOB.setClickable(true);
         cardOC.setClickable(true);
         cardOD.setClickable(true);
+        nextBtn.setClickable(false);
     }
 
     public void disableButton() {
@@ -192,6 +193,7 @@ public class DashboardActivity extends AppCompatActivity {
         cardOB.setClickable(false);
         cardOC.setClickable(false);
         cardOD.setClickable(false);
+        nextBtn.setClickable(true);
     }
 
     public void resetColor() {

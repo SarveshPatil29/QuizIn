@@ -3,10 +3,12 @@ package com.group5.quizin;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,6 +26,7 @@ public class SignUpActivity extends AppCompatActivity {
     private TextView mTextView;
     private Button signUpBtn;
     private FirebaseAuth mAuth;
+    private Dialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,12 @@ public class SignUpActivity extends AppCompatActivity {
         mPass= findViewById(R.id.password);
         mTextView= findViewById(R.id.textView1);
         signUpBtn= findViewById(R.id.signUpBtn);
+
+        loadingDialog = new Dialog(SignUpActivity.this);
+        loadingDialog.setContentView(R.layout.loading_progressbar);
+        loadingDialog.setCancelable(false);
+        loadingDialog.getWindow().setBackgroundDrawableResource(R.drawable.progress_background);
+        loadingDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
 
         mAuth=FirebaseAuth.getInstance();
 
@@ -53,6 +62,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void createUser(){
+        loadingDialog.show();
         String email = mEmail.getText().toString();
         String pass = mPass.getText().toString();
 
@@ -61,6 +71,7 @@ public class SignUpActivity extends AppCompatActivity {
                 mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                loadingDialog.dismiss();
                                 Toast.makeText(SignUpActivity.this, "Registered Successfully !!", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(SignUpActivity.this , SignInActivity.class));
                                 finish();
@@ -68,6 +79,7 @@ public class SignUpActivity extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        loadingDialog.dismiss();
                         Toast.makeText(SignUpActivity.this, "Registration Error !!", Toast.LENGTH_SHORT).show();
                     }
                 });

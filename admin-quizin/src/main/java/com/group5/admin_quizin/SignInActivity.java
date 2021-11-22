@@ -68,6 +68,7 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
+//        If user is already logged in then skip the sign in page
 //        if(firebaseAuth.getCurrentUser() != null)
 //        {
 //            Intent intent = new Intent(SignInActivity.this,QuestionListActivity.class);
@@ -83,24 +84,17 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    // Sign in success, update UI with the signed-in user's information
+                    // Sign in success, take to the next activity
                     Toast.makeText(SignInActivity.this,"Sign In Successful!!",Toast.LENGTH_SHORT).show();
-
                     Intent intent = new Intent(SignInActivity.this,QuestionListActivity.class);
                     startActivity(intent);
                     finish();
-
-
                 } else {
                     // If sign in fails, display a message to the user.
-
                     Toast.makeText(SignInActivity.this,"Sign In Failed!!",Toast.LENGTH_SHORT).show();
-
                 }
 
-
                 loadingDialog.dismiss();
-                // ...
             }
         });
 

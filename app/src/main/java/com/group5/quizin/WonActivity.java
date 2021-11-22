@@ -1,20 +1,14 @@
 package com.group5.quizin;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -28,14 +22,10 @@ public class WonActivity extends AppCompatActivity {
     int correct;
     int wrong;
     int totalQuestions;
-
     LinearLayout btnShare;
-
     FirebaseUser user;
     DatabaseReference rootReference;
-
     ImageView backBtn,exitBtn;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,8 +88,8 @@ public class WonActivity extends AppCompatActivity {
                     Intent shareIntent = new Intent(Intent.ACTION_SEND);
                     shareIntent.setType("text/plain");
                     shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name");
-                    String shareMessage = "\nI got " + correct + " Out of " + totalQuestions + " You Can Also Try ";
-                    shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID;
+                    String shareMessage = "I got " + correct + " Out of " + totalQuestions + " You Can Also Try ";
+//                    shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID;
                     shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
                     startActivity(Intent.createChooser(shareIntent, "choose one"));
                 } catch (Exception e) {

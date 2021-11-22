@@ -66,7 +66,7 @@ public class QuestionAdapter extends FirebaseRecyclerAdapter<QuestionModel, Ques
                         .setGravity(Gravity.CENTER)
                         .setMargin(50, 0, 50, 0)
                         .setContentHolder(new ViewHolder(R.layout.content))
-                        .setExpanded(false)  // This will enable the expand feature, (similar to android L share dialog)
+                        .setExpanded(false)
                         .create();
 
                 View holderView = (LinearLayout) dialog.getHolderView();
