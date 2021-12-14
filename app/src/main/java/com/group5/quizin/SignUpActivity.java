@@ -50,6 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+                finish();
             }
         });
 
@@ -84,11 +85,14 @@ public class SignUpActivity extends AppCompatActivity {
                     }
                 });
             }else{
+                loadingDialog.dismiss();
                 mPass.setError("Empty Fields Are not Allowed");
             }
         }else if(email.isEmpty()){
+            loadingDialog.dismiss();
             mEmail.setError("Empty Fields Are not Allowed");
         }else{
+            loadingDialog.dismiss();
             mEmail.setError("Please Enter Correct Email");
         }
     }

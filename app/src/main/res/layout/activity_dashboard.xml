@@ -33,7 +33,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/_10sdp"
             android:background="@drawable/ic_baseline_exit_to_app_24"
-            android:backgroundTint="@color/white"/>
+            android:backgroundTint="@color/white" />
 
     </RelativeLayout>
 
@@ -70,7 +70,6 @@
 
 
             <TextView
-                android:textStyle="bold"
                 android:id="@+id/card_question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,8 +77,9 @@
                 android:layout_margin="@dimen/_10sdp"
                 android:gravity="center"
                 android:text="@string/app_name"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp"
-                android:textColor="@color/black" />
+                android:textStyle="bold" />
 
 
         </androidx.cardview.widget.CardView>
@@ -102,11 +102,11 @@
                 android:id="@+id/card_optionA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_gravity="center"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:layout_gravity="center"
                 android:text="A"
                 android:textColor="@color/black" />
 
@@ -127,16 +127,16 @@
 
 
             <TextView
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
                 android:id="@+id/card_optionB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
                 android:text="B"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
 
         </androidx.cardview.widget.CardView>
@@ -155,14 +155,14 @@
 
 
             <TextView
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
                 android:id="@+id/card_optionC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
                 android:text="C"
                 android:textColor="@color/black" />
 
@@ -183,14 +183,14 @@
 
 
             <TextView
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
                 android:id="@+id/card_optionD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
                 android:text="D"
                 android:textColor="@color/black" />
 

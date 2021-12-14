@@ -5,13 +5,12 @@
     android:background="@color/primary_quiz">
 
     <ImageView
+        android:id="@+id/logoSignIn"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_150sdp"
-        android:src="@drawable/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_20sdp"
-        android:id="@+id/logoSignIn"
-        />
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/signUp"

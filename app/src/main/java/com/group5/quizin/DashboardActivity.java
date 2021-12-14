@@ -91,6 +91,7 @@ public class DashboardActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         Intent intent = new Intent(DashboardActivity.this, SplashActivity.class);
                         startActivity(intent);
+                        finish();
                     }
                 });
                 dialog.show();
@@ -178,6 +179,7 @@ public class DashboardActivity extends AppCompatActivity {
         intent.putExtra("wrong", wrongCount);
         intent.putExtra("totalQuestions",totalCount);
         startActivity(intent);
+        finish();
     }
 
     public void enableButton() {
